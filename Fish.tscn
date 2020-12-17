@@ -1,0 +1,61 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/Fish/swim_to_left/6.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/6.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Fish/swim_to_left/3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Fish/swim_to_left/2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/5.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Fish/swim_to_left/1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Fish/Swim_to_right/1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Fish/swim_to_left/5.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Fish/swim_to_left/4.png" type="Texture" id=12]
+[ext_resource path="res://Fish.gd" type="Script" id=13]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 84.5462
+height = 64.5649
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "derecha",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "arriba",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "izquierda",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "abajo",
+"speed": 5.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 512, 312 )
+rotation = 1.5708
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 512, 304 )
+frames = SubResource( 2 )
+animation = "abajo"
+__meta__ = {
+"_edit_group_": true
+}
